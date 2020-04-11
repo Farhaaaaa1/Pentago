@@ -52,6 +52,10 @@ public class Player {
         }
     }
 
+    /**
+     * i create a  test here and the answer is the side that we want to rotate it .
+     * @param Cell      nuts of this board game
+     */
     public void rotating(int[] Cell) {
         int sideNumber = 0;
         int counter = 0;
@@ -93,7 +97,6 @@ public class Player {
 
     /**
      * here we rotate the sides(rotate counter clockwise) ...
-     *
      * @param startingPoint means wich side we choose
      * @param Cell          nuts of this board game
      */
@@ -133,6 +136,9 @@ public class Player {
 
     }
 
+    /**
+     * help to rotate the sides
+     */
     public int makeStartingPoint(int aim) {
         // just put -0- for fun and omit the error ...
         int startingPoint = 0;

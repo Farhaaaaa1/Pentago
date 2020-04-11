@@ -1,7 +1,19 @@
 package com.company;
 
+/**
+ * in this project we creat Pentago game
+ *
+ * my map is like this :     0   1   2   3  4   5
+ *                           6   7   8   9  10  11
+ *                           12  13  14  15 16  17
+ *                           18  19  20  21 22  23
+ *                           24  25  26  27 28  29
+ *                           30  31  32  33 34  35
+ * @author Farhan
+ */
 public class GameSystem {
     int aim = 0;
+    // to trace oblique
     int[] startTracingFromTopLeft = {6, 1, 0};
     int[] startTracingFromTopRight = {4, 5, 11};
 
@@ -13,7 +25,7 @@ public class GameSystem {
         Board board = new Board();
         GameSystem pentago = new GameSystem();
         board.firstValue(Cell);
-        while (true) {
+        while (turn < 36) {
             board.print(Cell, turn);
             System.out.println();
             System.out.print("  \u001b[33mput your nut :   \u001b[0m");
@@ -29,21 +41,33 @@ public class GameSystem {
             System.out.println();
             board.print(Cell, turn);
             user.rotating(Cell);
-            if (pentago.referee(Cell)!= 100) {
+            if (pentago.referee(Cell) != 100) {
                 board.print(Cell, turn);
                 break;
             }
             turn++;
-            //board.print(Cell,turn);
             System.out.println();
         }
-        System.out.println(pentago.referee(Cell));
-        System.out.println("tamaaaaam");
+        if (pentago.referee(Cell) == 0) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("        \u001b[30m\u001b[43m DRAW \u001b[0m");
+        } else if (pentago.referee(Cell) == 1) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("        \u001b[30m\u001b[43m Player1's Won this game \u001b[0m");
+        } else if (pentago.referee(Cell) == -1) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("         \u001b[30m\u001b[43mPlayer2's Won this game \u001b[0m");
+        }
     }
 
     /**
      * method to check we have winner or not
-     *
      * @param Cell board of the game
      * @return we have winner or not
      */
@@ -60,10 +84,10 @@ public class GameSystem {
                 if (sum == 4) {
                     int color = Cell[i];
                     finish = true;
-                    if (winner <= 0 && color>0)
-                        winner ++ ;
-                    if (winner >= 0 && color<0)
-                        winner -- ;
+                    if (winner <= 0 && color > 0)
+                        winner++;
+                    if (winner >= 0 && color < 0)
+                        winner--;
                 }
                 if (Cell[i] * Cell[i - 1] == -1)
                     sum = 1;
@@ -79,10 +103,10 @@ public class GameSystem {
                 if (sum == 4) {
                     int color = Cell[i];
                     finish = true;
-                    if (winner <= 0 && color>0)
-                        winner ++ ;
-                    if (winner >= 0 && color<0)
-                        winner -- ;
+                    if (winner <= 0 && color > 0)
+                        winner++;
+                    if (winner >= 0 && color < 0)
+                        winner--;
                 }
                 if (Cell[i] * Cell[i - 6] == -1)
                     sum = 1;
@@ -99,10 +123,10 @@ public class GameSystem {
                 if (sum == 4) {
                     int color = Cell[i];
                     finish = true;
-                    if (winner <= 0 && color>0)
-                        winner ++ ;
-                    if (winner >= 0 && color<0)
-                        winner -- ;
+                    if (winner <= 0 && color > 0)
+                        winner++;
+                    if (winner >= 0 && color < 0)
+                        winner--;
                 }
                 if (Cell[i] * Cell[i - 7] == -1)
                     sum = 1;
@@ -119,10 +143,10 @@ public class GameSystem {
                 if (sum == 4) {
                     int color = Cell[i];
                     finish = true;
-                    if (winner <= 0 && color>0)
-                        winner ++ ;
-                    if (winner >= 0 && color<0)
-                        winner -- ;
+                    if (winner <= 0 && color > 0)
+                        winner++;
+                    if (winner >= 0 && color < 0)
+                        winner--;
                 }
                 if (Cell[i] * Cell[i - 5] == -1)
                     sum = 1;
@@ -130,9 +154,9 @@ public class GameSystem {
                     sum = 0;
             }
         }
-        if(finish)
-            return winner ;
+        if (finish)
+            return winner;
         else
-            return 100 ;
+            return 100;
     }
 }

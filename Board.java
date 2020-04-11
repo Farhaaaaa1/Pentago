@@ -15,6 +15,8 @@ public class Board {
     }
 
     public void print(int[] Cell, int turn) {
+        System.out.println("\u001b[33m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001b[0m");
+        System.out.println();
         System.out.println("\u001b[43m\u001b[30m    A     B     C       D     E     F    \u001b[0m");
         for (int i = 0; i < 3; ++i) {
             if (i == 1) {
@@ -54,6 +56,11 @@ public class Board {
         System.out.println("\u001b[43m\u001b[33m                                         \u001b[0m");
     }
 
+    /**
+     * puting the nuts (mohre)
+     * @param n color of nuts
+     * @return      the nuts(mohre)
+     */
     public char printingTheNuts(int n) {
         int a;
         if (n == 0)
